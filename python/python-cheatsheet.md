@@ -8,6 +8,7 @@
 5. [Number & Math](#5-number--math)
 6. [Conditionals](#6-conditionals)
 7. [Loops](#7-loops)
+8. [Function](#8-function)
 
 ## 1. Comments
 * Always add a space after the #
@@ -63,7 +64,7 @@ x, y = 10, 20
 a = b = c = 0
 ```
 ## 4. String 
-* It's recommended to use double-quotes for strings
+* It's recommended to use double-quotes "" for strings
 * Use "\n" to create a line break
 * To write a backslash in a normal string, write "\\" 
 
@@ -78,30 +79,41 @@ length = len("Python")   # 6
 ```
 
 * Methods:
-
 ```python
-"a".upper()                     # "A"
-"A".lower()                     # "a"
-" a ".strip()                   # "a"
-"abc".replace("bc", "ha")       # "aha"
-"a b".split()                   # ["a", "b"]
-"-".join(["a", "b"])            # "a-b"
+"a".upper()                     # "A"              # Uppercase the string
+"A".lower()                     # "a"              # Lowercase the string
+" a ".strip()                   # "a"              # Remove whitespace from both ends
+" a ".lstrip()                  # "a "             # Remove whitespace from left
+" a ".rstrip()                  # " a"             # Remove whitespace from right
+"hello".startswith("he")        # True             # Check if starts with substring
+"hello".endswith("lo")          # True             # Check if ends with substring
+"abc".replace("bc", "ha")       # "aha"            # Replace substring
+"a b c".split()                 # ["a", "b", "c"]  # Split string into list
+"a:b:c".split(":")              # ["a", "b", "c"]  # Split with custom delimiter
+"-".join(["a", "b"])            # "a-b"            # Join list into string
 ```
 
 ### Indexing & Slicing:
 
 ```python
-text = "Python"
-text[0]      # "P" (first)
+text = "Hello, Python"
+text[0]      # "H" (first)
 text[-1]     # "n" (last)
-text[1:4]    # "yth" (slice)
-text[:3]     # "Pyt" (from start)
-text[3:]     # "hon" (to end)
-text[::2]    # "Pto" (every 2nd)
-text[::-1]   # "nohtyP" (reverse)
+text[1:4]    # "ell" (slice)
+text[:3]     # "Hel" (from start)
+text[3:]     # "lo, Python" (to end)
+text[::2]    # "Hlo yhn" (every 2nd)
+text[::-1]   # "nohtyP ,olleH" (reverse)
+```
+### F-string
+* f-string allow inline expression evaluation and formatting, making string construction concise and readable
+```python
+math_division = 7/2
+print(f"Result: {math_division}")  # "Result: 3.5"
+# or
+print(f"Result: {7/2}")            # "Result: 3.5"
 ```
 ### Formatting:
-
 ```python
 # f-strings
 name = "Aubrey"
@@ -114,8 +126,6 @@ f"Debug: {age=}"                # "Debug: age=2"
 template = "Hello, {name}! You're {age}."
 template.format(name="Aubrey", age=2)    # "Hello, Aubrey! You're 2."
 ```
-### F-string
-
 
 ## 5. Number & Math
 ### Arithmetic Operators:
@@ -136,6 +146,15 @@ round(3.14159, 2)    # 3.14           # Round to 2 decimal places
 min(3, 1, 2)         # 1              # Minimum value
 max(3, 1, 2)         # 3              # Maximum value
 sum([1, 2, 3])       # 6              # Sum of iterable
+pow(2, 3)            # 8              # Power (same as 2 ** 3)
+```
+
+### Format as Percentage:
+```python
+ratio = 0.125
+f"{ratio:.2%}"       # "12.50%"       # Format as percentage with 2 decimals
+f"{0.5:.1%}"         # "50.0%"        # Format as percentage with 1 decimal
+f"{0.3333:.0%}"      # "33%"          # Format as percentage with no decimals
 ```
 
 ## 6. Conditionals
@@ -229,7 +248,7 @@ for i in range(10):
 * Add return to send values back
 * Create anonymous functions with the lambda keyword
 
-### Defind function
+### Define function
 ```python
 def greet():
     return "Hello!"
